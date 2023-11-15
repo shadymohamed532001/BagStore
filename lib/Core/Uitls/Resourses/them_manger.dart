@@ -22,12 +22,13 @@ ThemeData getAppThem() {
       ),
       // Text Them
       textTheme: TextTheme(
-          titleLarge: getBoldStyle(
-              color: ColorManger.blackColor, fontsize: AppSize.s28),
-          titleMedium: getMediumStyle(
-              color: ColorManger.blackColor, fontsize: AppSize.s18),
-          titleSmall: getRegularStyle(
-              color: ColorManger.blackColor, fontsize: AppSize.s12))
+        titleLarge:
+            getBoldStyle(color: ColorManger.blackColor, fontsize: AppSize.s28),
+        titleMedium: getMediumStyle(
+            color: ColorManger.blackColor, fontsize: AppSize.s18),
+        titleSmall: getRegularStyle(
+            color: ColorManger.blackColor, fontsize: AppSize.s12),
+      )
       // Input Them
       );
 }

@@ -1,5 +1,6 @@
-import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo.dart';
-import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo_impl.dart';
+import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo.dart';
+import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo_impl.dart';
+
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/data/repositories/onbording_repo.dart';

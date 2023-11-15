@@ -3,7 +3,7 @@ import 'package:bagstore/Core/Uitls/endBoint.dart';
 import 'package:bagstore/Core/Uitls/models/Bag_Auth_Model/bag_Auth_model.dart';
 import 'package:bagstore/Core/errors/Failure.dart';
 import 'package:bagstore/Core/errors/servier_failure.dart';
-import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo.dart';
+import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

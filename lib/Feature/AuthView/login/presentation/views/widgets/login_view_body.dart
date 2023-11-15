@@ -4,8 +4,8 @@ import 'package:bagstore/Core/Uitls/local_services.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/CustomBottom.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
+import 'package:bagstore/Core/config/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
-import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,36 +38,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginLoading) {
-          // show the CircularProgressIndicator widget
-          showDialog(
-              context: context,
-              builder: (_) => Center(
-                    child: CircularProgressIndicator(
-                      color: ColorManger.whiteColor,
-                    ),
-                  ));
-        } else if (state is LoginSucess) {
-          if (state.bagLoginModel.status == true) {
-            Navigator.of(context)
-                .pop(); // close the dialog if successfully logged in
-            showTouster(
-              massage: state.bagLoginModel.message!,
-              state: ToustState.SUCCESS,
-            );
-            LocalServices.saveData(
-                    key: 'token', value: state.bagLoginModel.data!.token)
-                .then((value) {
-              pushAndFinsh(context, pageName: HomeView.routeName);
-            });
-          } else {
-            Navigator.of(context).pop(); // close the dialog if login fails
-            showTouster(
-              massage: state.bagLoginModel.message!,
-              state: ToustState.ERROR,
-            );
-          }
-        }
+        checkStateOfLoginUser(state, context);
       },
       builder: (context, state) {
         var loginCubite = BlocProvider.of<LoginCubit>(context);
@@ -220,6 +191,39 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         );
       },
     );
+  }
+
+  void checkStateOfLoginUser(LoginState state, BuildContext context) {
+    if (state is LoginLoading) {
+      // show the CircularProgressIndicator widget
+      showDialog(
+          context: context,
+          builder: (_) => Center(
+                child: CircularProgressIndicator(
+                  color: ColorManger.whiteColor,
+                ),
+              ));
+    } else if (state is LoginSucess) {
+      if (state.bagLoginModel.status == true) {
+        Navigator.of(context)
+            .pop(); // close the dialog if successfully logged in
+        showTouster(
+          massage: state.bagLoginModel.message!,
+          state: ToustState.SUCCESS,
+        );
+        LocalServices.saveData(
+                key: 'token', value: state.bagLoginModel.data!.token)
+            .then((value) {
+          pushAndFinsh(context, pageName: Routes.homeViewRoute);
+        });
+      } else {
+        Navigator.of(context).pop(); // close the dialog if login fails
+        showTouster(
+          massage: state.bagLoginModel.message!,
+          state: ToustState.ERROR,
+        );
+      }
+    }
   }
 
   void loginUser(BuildContext context) {

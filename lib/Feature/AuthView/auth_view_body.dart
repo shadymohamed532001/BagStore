@@ -1,11 +1,8 @@
 import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bagstore/Core/Uitls/Resourses/ImageAssets.dart';
-import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
-import 'package:bagstore/Feature/AuthView/login/presentation/views/widgets/login_view_body.dart';
-import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/presentation/views/login_view.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthViewBody extends StatefulWidget {
   static const String routeName = 'AuthViewBody';
@@ -82,7 +79,7 @@ class _MyTabbedPageState extends State<AuthViewBody>
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    const LoginViewBody(),
+                    const LoginView(),
                     SignUpViewBody(),
                   ],
                 ),
