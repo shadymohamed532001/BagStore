@@ -1,14 +1,14 @@
 import 'package:bagstore/Core/Uitls/api_services.dart';
 import 'package:bagstore/Core/Uitls/endBoint.dart';
 import 'package:bagstore/Feature/AuthView/Presentation/ViewModels/Bag_Auth_Model/bag_Auth_model.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meta/meta.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
-
   BagAuthModel? bagLoginModel;
 
   void LoginUser({

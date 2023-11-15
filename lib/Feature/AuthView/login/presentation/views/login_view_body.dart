@@ -2,54 +2,43 @@ import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bagstore/Core/Uitls/functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
 import 'package:bagstore/Core/Widgets/CustomBottom.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/Views/Widgets/custom_auth_text_formfield.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/Views/Widgets/shows_toust_color.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/manager/Cubites/RegisterCubite/cubit/register_cubit.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
+import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// ignore: must_be_immutable
-class SignUpViewBody extends StatefulWidget {
-  static const String routeName = 'register';
-  bool isChecked = false;
-
-  SignUpViewBody({super.key});
+class LoginViewBody extends StatefulWidget {
+  const LoginViewBody({super.key});
 
   @override
-  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+  State<LoginViewBody> createState() => _LoginViewBodyState();
 }
 
-class _SignUpViewBodyState extends State<SignUpViewBody> {
+class _LoginViewBodyState extends State<LoginViewBody> {
   var formKey = GlobalKey<FormState>();
 
+  var emailController = TextEditingController();
+
+  var passwordController = TextEditingController();
+
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
-
-  TextEditingController nameController = TextEditingController();
-
-  TextEditingController emailController = TextEditingController();
-
-  TextEditingController passwordController = TextEditingController();
-
-  TextEditingController phoneController = TextEditingController();
-
   String errorMessage = '';
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-    nameController.dispose();
-    phoneController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is RegisterLoading) {
+        if (state is LoginLoading) {
           // show the CircularProgressIndicator widget
           showDialog(
               context: context,
@@ -58,43 +47,44 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       color: ColorManger.whiteColor,
                     ),
                   ));
-        } else if (state is RegisterSucess) {
-          if (state.bagRegisterModel.status == true) {
+        } else if (state is LoginSucess) {
+          if (state.bagLoginModel.status == true) {
             Navigator.of(context)
                 .pop(); // close the dialog if successfully logged in
             showTouster(
-              massage: state.bagRegisterModel.message!,
+              massage: state.bagLoginModel.message!,
               state: ToustState.SUCCESS,
             );
             LocalServices.saveData(
-                    key: 'token', value: state.bagRegisterModel.data!.token)
+                    key: 'token', value: state.bagLoginModel.data!.token)
                 .then((value) {
               pushAndFinsh(context, pageName: HomeView.routeName);
             });
           } else {
             Navigator.of(context).pop(); // close the dialog if login fails
             showTouster(
-              massage: state.bagRegisterModel.message!,
+              massage: state.bagLoginModel.message!,
               state: ToustState.ERROR,
             );
           }
         }
       },
       builder: (context, state) {
+        var loginCubite = BlocProvider.of<LoginCubit>(context);
         return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-                child: Column(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Column(
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 Text(
-                  'SIGN UP',
+                  'SIGN IN',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.06,
                 ),
                 Form(
                   key: formKey,
@@ -102,26 +92,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text('Full Name',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(fontSize: 15)),
-                      ),
-                      CustomTextFormFiled(
-                        obscureText: false,
-                        hintText: 'Name',
-                        keyboardType: TextInputType.text,
-                        controller: nameController,
-                        validator: (text) {
-                          if (text == null || text.trim().isEmpty) {
-                            return 'Please enter your name';
-                          }
-                          return null;
-                        },
-                      ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text('Email',
@@ -168,94 +138,50 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                                 .copyWith(fontSize: 15)),
                       ),
                       CustomTextFormFiled(
-                        obscureText: BlocProvider.of<RegisterCubit>(context)
-                            .isPasswordShow,
+                        obscureText: loginCubite.isPasswordShow,
                         suffixIcon: InkWell(
                           splashColor: Colors.transparent,
                           onTap: () {
-                            BlocProvider.of<RegisterCubit>(context)
+                            BlocProvider.of<LoginCubit>(context)
                                 .ChangepasswordVisiability();
                           },
-                          child: BlocProvider.of<RegisterCubit>(context).icon,
+                          child: BlocProvider.of<LoginCubit>(context).icon,
                         ),
-                        hintText: 'Min 8 Cyfr',
+                        hintText: 'Min 6 Cyfr',
                         keyboardType: TextInputType.visiblePassword,
                         controller: passwordController,
                         validator: (text) {
                           if (text == null || text.trim().isEmpty) {
                             return 'Please enter your password';
                           }
-                          if (text.length < 8) {
+                          if (text.length < 6) {
                             return 'Password 8 chars at least';
                           }
                           return null;
                         },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text('phone',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(fontSize: 15)),
-                      ),
-                      CustomTextFormFiled(
-                        obscureText: false,
-                        hintText: 'phone',
-                        keyboardType: TextInputType.phone,
-                        controller: phoneController,
-                        validator: (text) {
-                          if (text == null || text.trim().isEmpty) {
-                            return 'Please enter your phone';
-                          }
-                          return null;
+                      InkWell(
+                        onTap: () {
+                          // Navigator.of(context)
+                          // .pushNamed(ForgetPassword.routeName);
                         },
-                      ),
-                      Row(
-                        children: [
-                          Transform.scale(
-                            scale: 1.36,
-                            child: Checkbox(
-                              value: widget.isChecked,
-                              activeColor: ColorManger.primaryColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                  side: BorderSide(
-                                    color: ColorManger.primaryColor,
-                                    style: BorderStyle.none,
-                                  )),
-                              onChanged: (bool? newValue) {
-                                setState(() {
-                                  widget.isChecked = newValue!;
-                                });
-                              },
-                            ),
-                          ),
-                          Text(
-                            'I agree with Terms and ',
-                            style: Theme.of(context).textTheme.titleSmall,
-                          ),
-                          Text(
-                            'Privacy Policy',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                  color: ColorManger.primaryColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                          ),
-                        ],
+                        child: Text(
+                          textAlign: TextAlign.right,
+                          'Forgot your password?',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: ColorManger.primaryColor),
+                        ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.05,
+                        height: MediaQuery.of(context).size.height * 0.25,
                       ),
                       CustomBottom(
-                        bottomtext: 'Sign Up',
+                        bottomtext: 'Sign in',
                         onPressed: () {
-                          if (formKey.currentState!.validate() &&
-                              widget.isChecked == true) {
-                            registerUser(context);
+                          if (formKey.currentState!.validate() == true) {
+                            loginUser(context);
                           } else {
                             autovalidateMode = AutovalidateMode.always;
                             setState(() {});
@@ -267,16 +193,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Already have account?',
+                            'Don’t have an account?',
+                            // AppLocalizations.of(context)!.do_not_have_an_account,
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                           TextButton(
-                              onPressed: () {
-                                // Navigator.pushNamedAndRemoveUntil(context,
-                                //     AuthViewBody.routeName, (route) => false);
-                              },
+                              onPressed: () {},
                               child: Text(
-                                'Sign In',
+                                'Sign Up',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleSmall!
@@ -286,28 +210,30 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                                     ),
                               ))
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
               ],
-            )));
+            ),
+          ),
+        );
       },
     );
   }
 
-  void registerUser(BuildContext context) {
-    BlocProvider.of<RegisterCubit>(context).RegisterUser(
-        email: emailController.text,
-        password: passwordController.text,
-        name: nameController.text,
-        phone: phoneController.text);
+  void loginUser(BuildContext context) {
+    BlocProvider.of<LoginCubit>(context).LoginUser(
+      Email: emailController.text,
+      password: passwordController.text,
+      lang: 'en',
+    );
   }
 
   void validateEmail(String val) {
     if (!EmailValidator.validate(val, true) && val.isNotEmpty) {
       setState(() {
-        errorMessage = "Invalid Email Address";
+        errorMessage = "Please enter valid Email Address";
       });
     } else {
       setState(() {

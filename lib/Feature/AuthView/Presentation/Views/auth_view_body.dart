@@ -1,14 +1,18 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bagstore/Core/Uitls/Resourses/ImageAssets.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/Views/Widgets/login_view_body.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/Views/Widgets/sign_up_view_body.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/manager/Cubites/RegisterCubite/cubit/register_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/presentation/widgets/login_view_body.dart';
+import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
+import 'package:bagstore/Feature/AuthView/sign_up/presentation/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthViewBody extends StatefulWidget {
   static const String routeName = 'AuthViewBody';
+
+  const AuthViewBody({super.key});
 
   @override
   _MyTabbedPageState createState() => _MyTabbedPageState();
