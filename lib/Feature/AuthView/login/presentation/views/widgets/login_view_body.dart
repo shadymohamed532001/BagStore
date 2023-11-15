@@ -1,7 +1,7 @@
 import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bagstore/Core/Uitls/functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
-import 'package:bagstore/Core/Widgets/CustomBottom.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/CustomBottom.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';

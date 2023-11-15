@@ -2,7 +2,7 @@ import 'package:bagstore/Core/Uitls/ClipShapes.dart';
 import 'package:bagstore/Core/Uitls/Constants.dart';
 import 'package:bagstore/Core/Uitls/Resourses/ImageAssets.dart';
 import 'package:bagstore/Core/Uitls/functions.dart';
-import 'package:bagstore/Core/Widgets/CustomClipPath.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/CustomClipPath.dart';
 import 'package:bagstore/Core/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

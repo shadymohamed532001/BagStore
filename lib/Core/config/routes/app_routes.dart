@@ -4,7 +4,9 @@ import 'package:bagstore/Core/Uitls/Resourses/StringManger.dart';
 import 'package:bagstore/Core/Uitls/Resourses/ValuesManger.dart';
 import 'package:bagstore/Core/Uitls/service_locator.dart';
 import 'package:bagstore/Core/config/routes/routes.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/Views/auth_view_body.dart';
+import 'package:bagstore/Feature/AuthView/auth_view_body.dart';
+import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
 import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
@@ -26,7 +28,15 @@ class AppRoutes {
                 ));
 
       case Routes.authViewRoute:
-        return MaterialPageRoute(builder: (context) => AuthViewBody());
+        return MaterialPageRoute(
+            builder: (context) => MultiBlocProvider(providers: [
+                  BlocProvider(
+                    create: (context) => serviceLocator.get<LoginCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (context) => RegisterCubit(),
+                  ),
+                ], child: const AuthViewBody()));
       case Routes.homeViewRoute:
         return MaterialPageRoute(builder: (context) => const HomeView());
 

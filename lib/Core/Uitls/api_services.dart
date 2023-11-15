@@ -28,12 +28,13 @@ class ApiServices {
     );
   }
 
-  static Future<Response> getData(
-      {required String endpoint,
-      Object? data,
-      String? token,
-      String lang = 'ar',
-      Map<String, dynamic>? queryParameters}) async {
+  static Future<Response> getData({
+    required String endpoint,
+    Object? data,
+    String? token,
+    String lang = 'ar',
+    Map<String, dynamic>? queryParameters,
+  }) async {
     dio?.options.headers = {
       'Authorization': token,
       'Content-Type': 'application/json',

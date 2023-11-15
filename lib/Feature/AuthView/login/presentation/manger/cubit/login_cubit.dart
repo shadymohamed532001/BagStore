@@ -1,6 +1,8 @@
 import 'package:bagstore/Core/Uitls/api_services.dart';
 import 'package:bagstore/Core/Uitls/endBoint.dart';
-import 'package:bagstore/Feature/AuthView/Presentation/ViewModels/Bag_Auth_Model/bag_Auth_model.dart';
+import 'package:bagstore/Core/Uitls/models/Bag_Auth_Model/bag_Auth_model.dart';
+import 'package:bagstore/Core/errors/Failure.dart';
+import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -8,8 +10,9 @@ import 'package:meta/meta.dart';
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
-  BagAuthModel? bagLoginModel;
+  LoginCubit({required this.loginRepo}) : super(LoginInitial());
+
+  final LoginRepo loginRepo;
 
   void LoginUser({
     String? lang,
@@ -17,18 +20,16 @@ class LoginCubit extends Cubit<LoginState> {
     required String password,
   }) async {
     emit(LoginLoading());
-    await ApiServices.postData(
-        lang: lang ?? 'en',
-        endpoint: Loginendpoint,
-        data: {
-          'email': Email,
-          'password': password,
-        }).then((value) {
-      bagLoginModel = BagAuthModel.fromJson(value.data);
-      emit(LoginSucess(bagLoginModel: bagLoginModel!));
-    }).catchError((error) {
-      print(error.toString());
-      emit(LoginErorr(error: error.toString()));
+    loginRepo.loginUser(email: Email, password: password).then((value) {
+      value.fold(
+        (falier) => LoginErorr(error: falier.errMessage.toString()),
+        (user) => LoginSucess(bagLoginModel: user),
+      );
+      // value.fold((Failure) {}),
+      //       value.fold((user) {})
+
+      // bagLoginModel = BagAuthModel.fromJson(value.data);
+      // emit(LoginSucess(bagLoginModel: bagLoginModel!));
     });
   }
 

@@ -1,5 +1,5 @@
 import 'package:bagstore/Core/Uitls/ClipShapes.dart';
-import 'package:bagstore/Core/Widgets/CustomClipPath.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/CustomClipPath.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/custom_dot_items.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/custom_skiper.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/onbording_view_bottom.dart';
