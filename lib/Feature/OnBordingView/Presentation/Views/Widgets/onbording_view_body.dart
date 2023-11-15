@@ -2,11 +2,11 @@ import 'package:bagstore/Core/Uitls/ClipShapes.dart';
 import 'package:bagstore/Core/Widgets/CustomClipPath.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/custom_dot_items.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/custom_skiper.dart';
-import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/list_of_onbording_continet.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/onbording_view_bottom.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/onbording_view_logo.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -21,7 +21,6 @@ class OnboardingViewBody extends StatefulWidget {
 }
 
 class _OnboardingViewBodyState extends State<OnboardingViewBody> {
-  // int currnetIndex = 0;
   late PageController pageController;
 
   @override
@@ -43,7 +42,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
       onPageChanged: (index) {
         widget.cubit.onChangePageIndex(index);
       },
-      itemCount: continte.length,
+      itemCount:
+          BlocProvider.of<OnbordingCubit>(context).onBoardingPages().length,
       itemBuilder: (context, index) {
         var height = MediaQuery.of(context).size.height;
         var width = MediaQuery.of(context).size.width;
@@ -56,7 +56,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             CustomSkiper(
               onTap: () {
                 widget.cubit.navigateToLoginOrHome(context: context);
-                // Submited(context);
               },
             ),
             OnBordingLogo(

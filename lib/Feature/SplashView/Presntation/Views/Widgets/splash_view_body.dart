@@ -92,9 +92,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(const Duration(seconds: 2), (() {
       if (onBording != null) {
         if (token != null) {
-          pushAndFinsh(context, pageName: Routes.HomeViewRoute);
+          pushAndFinsh(context, pageName: Routes.homeViewRoute);
         } else {
-          pushAndFinsh(context, pageName: Routes.AuthViewRoute);
+          pushAndFinsh(context, pageName: Routes.authViewRoute);
         }
       } else {
         pushAndFinsh(context, pageName: Routes.onBoardingViewRoute);

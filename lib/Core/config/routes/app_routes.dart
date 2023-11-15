@@ -25,10 +25,10 @@ class AppRoutes {
                   child: const OnBordingView(),
                 ));
 
-      case Routes.AuthViewRoute:
+      case Routes.authViewRoute:
         return MaterialPageRoute(builder: (context) => AuthViewBody());
-      case Routes.HomeViewRoute:
-        return MaterialPageRoute(builder: (context) => HomeView());
+      case Routes.homeViewRoute:
+        return MaterialPageRoute(builder: (context) => const HomeView());
 
       default:
         return _unFoundRoute();

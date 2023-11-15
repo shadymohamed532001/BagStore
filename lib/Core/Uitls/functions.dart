@@ -9,7 +9,7 @@ void submited(BuildContext context) {
     value: true,
   ).then((value) {
     if (value) {
-      pushAndFinsh(context, pageName: Routes.AuthViewRoute);
+      pushAndFinsh(context, pageName: Routes.authViewRoute);
     }
   });
 }
