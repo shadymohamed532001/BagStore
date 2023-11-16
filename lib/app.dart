@@ -1,5 +1,5 @@
-import 'package:bagstore/Core/Uitls/Resourses/ThemManger.dart';
-import 'package:bagstore/Core/config/routes/app_routes.dart';
+import 'package:bagstore/Core/Resourses/them_manger.dart';
+import 'package:bagstore/config/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class BgaStore extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/models/Bag_Auth_Model/bag_Auth_model.dart';
+import 'package:bagstore/Core/models/Bag_Auth_Model/bag_auth_model.dart';
 import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,28 +10,35 @@ class LoginCubit extends Cubit<LoginState> {
 
   final LoginRepo loginRepo;
 
-  void LoginUser({
+  void loginUser({
     String? lang,
-    required String Email,
+    required String email,
     required String password,
-  }) async {
+  }) {
+    print('inside login function');
     emit(LoginLoading());
-    loginRepo.loginUser(email: Email, password: password).then((value) {
+    loginRepo.loginUser(email: email, password: password).then((value) {
       value.fold(
-        (falier) => LoginErorr(error: falier.errMessage.toString()),
-        (user) => LoginSucess(bagLoginModel: user),
+        (failure) {
+          emit(LoginErorr(error: failure.errMessage));
+          print(failure.errMessage);
+        },
+        (user) {
+          emit(LoginSucess(bagLoginModel: user));
+        },
       );
-      // value.fold((Failure) {}),
-      //       value.fold((user) {})
-
-      // bagLoginModel = BagAuthModel.fromJson(value.data);
-      // emit(LoginSucess(bagLoginModel: bagLoginModel!));
     });
+
+    // value.fold((Failure) {}),
+    //       value.fold((user) {})
+
+    // bagLoginModel = BagAuthModel.fromJson(value.data);
+    // emit(LoginSucess(bagLoginModel: bagLoginModel!));
   }
 
   bool isPasswordShow = true;
   Widget icon = const Icon(Icons.visibility_off);
-  void ChangepasswordVisiability() {
+  void changepasswordVisiability() {
     isPasswordShow = !isPasswordShow;
 
     icon = isPasswordShow

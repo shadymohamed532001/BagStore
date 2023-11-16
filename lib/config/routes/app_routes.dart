@@ -1,9 +1,9 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Core/Uitls/Resourses/style_manger.dart';
-import 'package:bagstore/Core/Uitls/Resourses/StringManger.dart';
-import 'package:bagstore/Core/Uitls/Resourses/ValuesManger.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Resourses/style_manger.dart';
+import 'package:bagstore/Core/Uitls/Resourses/string_manger.dart';
+import 'package:bagstore/Core/Uitls/Resourses/value_manger.dart';
 import 'package:bagstore/Core/Uitls/service_locator.dart';
-import 'package:bagstore/Core/config/routes/routes.dart';
+import 'package:bagstore/config/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/auth_view_body.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';

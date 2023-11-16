@@ -1,5 +1,5 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/CircleContiner.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/circle_continer.dart';
 import 'package:bagstore/Feature/Home/presentation/ViewModels/HomeModel/home_model/home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

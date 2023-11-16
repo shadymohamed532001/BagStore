@@ -1,6 +1,6 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Core/Uitls/Resourses/ValuesManger.dart';
-import 'package:bagstore/Core/Uitls/Resourses/style_manger.dart';
+import 'package:bagstore/Core/Uitls/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/Resourses/value_manger.dart';
+import 'package:bagstore/Core/Resourses/style_manger.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getAppThem() {

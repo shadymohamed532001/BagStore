@@ -1,9 +1,9 @@
-import 'package:bagstore/Core/Uitls/ClipShapes.dart';
-import 'package:bagstore/Core/Uitls/Constants.dart';
-import 'package:bagstore/Core/Uitls/Resourses/ImageAssets.dart';
-import 'package:bagstore/Core/Uitls/functions.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/CustomClipPath.dart';
-import 'package:bagstore/Core/config/routes/routes.dart';
+import 'package:bagstore/Core/Uitls/clip_shapes.dart';
+import 'package:bagstore/Core/Uitls/_constants.dart';
+import 'package:bagstore/Core/Resourses/image_assets.dart';
+import 'package:bagstore/Core/Uitls/_functions.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/custom_clip_path.dart';
+import 'package:bagstore/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

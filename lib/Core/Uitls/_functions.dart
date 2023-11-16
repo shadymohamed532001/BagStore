@@ -1,6 +1,6 @@
-import 'package:bagstore/Core/Uitls/Constants.dart';
+import 'package:bagstore/Core/Uitls/_constants.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
-import 'package:bagstore/Core/config/routes/routes.dart';
+import 'package:bagstore/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 void submited(BuildContext context) {

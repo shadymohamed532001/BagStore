@@ -1,7 +1,7 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/CustomtabBar.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/ListOfCatogry.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/PopularListViewItems.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/custom_tab_bar.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/list_of_catogry.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/popular_list_view_items.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/primary_header_continer.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/product_slider.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +84,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                             Expanded(
                               child: TextFormField(
                                 // style: TextStyle(color:),
-                                onTapOutside: (Event) {
+                                onTapOutside: (edgeDraggingAutoScroller) {
                                   FocusManager.instance.primaryFocus?.unfocus();
                                 },
                                 decoration: InputDecoration(

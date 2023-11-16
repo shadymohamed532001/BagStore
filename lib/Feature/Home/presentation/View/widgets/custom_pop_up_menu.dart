@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
+import 'package:bagstore/Core/Uitls/Resourses/color_mangager.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

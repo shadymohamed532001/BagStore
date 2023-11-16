@@ -1,6 +1,6 @@
-import 'package:bagstore/Core/Uitls/api_services.dart';
-import 'package:bagstore/Core/Uitls/blocObserver.dart';
-import 'package:bagstore/Core/Uitls/functions.dart';
+import 'package:bagstore/Core/api/api_services.dart';
+import 'package:bagstore/Core/Uitls/bloc_observer.dart';
+import 'package:bagstore/Core/Uitls/_functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
 import 'package:bagstore/Core/Uitls/service_locator.dart';
 import 'package:bagstore/app.dart';

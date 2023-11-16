@@ -1,8 +1,8 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Core/Uitls/functions.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/_functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/CustomBottom.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/custom_bottom.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
 import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
@@ -174,7 +174,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           splashColor: Colors.transparent,
                           onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
-                                .ChangepasswordVisiability();
+                                .changepasswordVisiability();
                           },
                           child: BlocProvider.of<RegisterCubit>(context).icon,
                         ),
@@ -297,7 +297,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   }
 
   void registerUser(BuildContext context) {
-    BlocProvider.of<RegisterCubit>(context).RegisterUser(
+    BlocProvider.of<RegisterCubit>(context).registerUser(
         email: emailController.text,
         password: passwordController.text,
         name: nameController.text,

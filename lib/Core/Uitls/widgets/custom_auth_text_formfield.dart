@@ -1,5 +1,5 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Core/Uitls/Resourses/ValuesManger.dart';
+import 'package:bagstore/Core/Uitls/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/Resourses/value_manger.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
@@ -45,7 +45,7 @@ class CustomTextFormFiled extends StatelessWidget {
         maxLines: maxLine,
         obscureText: obscureText,
         keyboardType: keyboardType,
-        style: TextStyle(fontSize: AppSize.s16),
+        style: const TextStyle(fontSize: AppSize.s16),
         controller: controller,
         onChanged: onChanged,
         onFieldSubmitted: onFieldSubmitted,

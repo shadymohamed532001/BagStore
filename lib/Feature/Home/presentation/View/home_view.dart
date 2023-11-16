@@ -1,5 +1,5 @@
 import 'package:bagstore/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/CustomNavigtionBar.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/custom_navigtion_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
       child: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          var Cubite = BlocProvider.of<HomeCubit>(context);
+          var cubite = BlocProvider.of<HomeCubit>(context);
           return Scaffold(
-            body: Cubite.NavBarScreans[Cubite.currentIndex],
+            body: cubite.navBarScreans[cubite.currentIndex],
             bottomNavigationBar: CustomBottomNavBar(),
           );
         },

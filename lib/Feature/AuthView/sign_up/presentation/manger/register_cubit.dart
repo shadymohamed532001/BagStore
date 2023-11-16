@@ -1,6 +1,6 @@
-import 'package:bagstore/Core/Uitls/api_services.dart';
-import 'package:bagstore/Core/Uitls/endBoint.dart';
-import 'package:bagstore/Core/Uitls/models/Bag_Auth_Model/bag_Auth_model.dart';
+import 'package:bagstore/Core/api/api_services.dart';
+import 'package:bagstore/Core/api/end_boint.dart';
+import 'package:bagstore/Core/models/Bag_Auth_Model/bag_auth_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +10,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
   BagAuthModel? bagAuthModel;
 
-  void RegisterUser({
+  void registerUser({
     required String name,
     required String email,
     required String password,
@@ -19,7 +19,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }) async {
     emit(RegisterLoading());
     await ApiServices.postData(
-      endpoint: RegisterendPoint,
+      endpoint: registerendPoint,
       lang: lang ?? 'en',
       data: {
         'name': name,
@@ -31,7 +31,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       bagAuthModel = BagAuthModel.fromJson(value.data);
       emit(RegisterSucess(bagRegisterModel: bagAuthModel!));
     }).catchError((error) {
-      print(error.toString());
+      // print(error.toString());
       emit(RegisterError(error: error.toString()));
     });
   }
@@ -39,7 +39,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool isPasswordShow = true;
 
   Widget icon = const Icon(Icons.visibility_off);
-  void ChangepasswordVisiability() {
+  void changepasswordVisiability() {
     isPasswordShow = !isPasswordShow;
 
     icon = isPasswordShow

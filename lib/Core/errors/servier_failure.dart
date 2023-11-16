@@ -1,8 +1,8 @@
-import 'dart:convert';
 
-import 'package:bagstore/Core/Uitls/Resourses/StatusCodes.dart';
-import 'package:bagstore/Core/errors/Failure.dart';
 import 'package:dio/dio.dart';
+import 'package:store_ify/core/api/status_code.dart';
+import 'package:store_ify/core/errors/failures.dart';
+import 'package:store_ify/core/utils/app_strings.dart';
 
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
@@ -31,19 +31,22 @@ class ServerFailure extends Failure {
           "Unexpected Error, please try again!",
         );
       default:
-        return ServerFailure('ooop error please try again');
+        return ServerFailure(AppStrings.opps);
     }
   }
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
-    final parsedResponse = jsonDecode(response);
+    final parsedResponse = response;
 
-    if (statusCode == StatusCodes.badRequest ||
-        statusCode == StatusCodes.unAuthorized ||
-        statusCode == StatusCodes.forbidden) {
-      return ServerFailure(parsedResponse['message']);
-    } else if (statusCode == StatusCodes.internalServerError) {
-      return ServerFailure(parsedResponse['error']);
+    if (parsedResponse != null && parsedResponse is Map<String, dynamic>) {
+      if (statusCode == StatusCodes.badRequest ||
+          statusCode == StatusCodes.unAuthorized ||
+          statusCode == StatusCodes.forbidden) {
+        return ServerFailure(parsedResponse['msgError'] ?? AppStrings.opps);
+      } else if (statusCode == StatusCodes.internalServerError) {
+        return ServerFailure(parsedResponse['error'] ?? AppStrings.opps);
+      }
     }
-    return ServerFailure('ooop error please try again');
+
+    return ServerFailure(AppStrings.opps);
   }
 }

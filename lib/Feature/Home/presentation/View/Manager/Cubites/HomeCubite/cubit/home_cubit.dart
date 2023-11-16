@@ -1,9 +1,9 @@
-import 'package:bagstore/Core/Uitls/Constants.dart';
-import 'package:bagstore/Core/Uitls/api_services.dart';
-import 'package:bagstore/Core/Uitls/endBoint.dart';
+import 'package:bagstore/Core/Uitls/_constants.dart';
+import 'package:bagstore/Core/api/api_services.dart';
+import 'package:bagstore/Core/api/end_boint.dart';
 import 'package:bagstore/Feature/Home/presentation/View/profile_view.dart';
 import 'package:bagstore/Feature/Home/presentation/View/store_view.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/HomeViewBody.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/home_view_body.dart';
 import 'package:bagstore/Feature/Home/presentation/View/wishlist_view.dart';
 import 'package:bagstore/Feature/Home/presentation/ViewModels/HomeModel/home_model/home_model.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 
-  List<Widget> NavBarScreans = [
+  List<Widget> navBarScreans = [
     const HomeViewBody(),
     const StoreView(),
     const WishListView(),
@@ -23,20 +23,23 @@ class HomeCubit extends Cubit<HomeState> {
 
   int currentIndex = 0;
 
-  void ChangeBottomIndex(int index) {
+  void changeBottomIndex(int index) {
     currentIndex = index;
     emit(HomeChangeBottomIndex());
   }
 
   HomeModel? homeModel;
-  Future HomeGetData() async {
+  Future homeGetData() async {
     emit(HomeLoading());
 
     try {
       var responses = await ApiServices.getData(
-          endpoint: homeendPoint, token: token, lang: 'en');
+        endpoint: homeendPoint,
+        token: token,
+        lang: 'en',
+      );
 
-      homeModel = HomeModel.fromJson(responses.data);
+      homeModel = HomeModel.fromJson(responses);
       emit(HomeSucess(homeModel: homeModel!));
 
       return homeModel;

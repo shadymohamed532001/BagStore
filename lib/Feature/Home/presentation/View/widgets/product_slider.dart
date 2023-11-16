@@ -1,6 +1,6 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
 import 'package:bagstore/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
-import 'package:bagstore/Feature/Home/presentation/View/widgets/proudect_cardItem_vertical.dart';
+import 'package:bagstore/Feature/Home/presentation/View/widgets/proudect_carditem_vertical.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,9 +15,9 @@ class ProudectSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var of = BlocProvider.of<HomeCubit>(context);
+    var cubite = BlocProvider.of<HomeCubit>(context);
     return FutureBuilder(
-      future: of.HomeGetData(),
+      future: cubite.homeGetData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           var homeModel2 = BlocProvider.of<HomeCubit>(context).homeModel!;

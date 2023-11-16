@@ -1,10 +1,10 @@
-import 'package:bagstore/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bagstore/Core/Uitls/functions.dart';
+import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/_functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/CustomBottom.dart';
+import 'package:bagstore/Core/Uitls/sharewidgets/custom_bottom.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
-import 'package:bagstore/Core/config/routes/routes.dart';
+import 'package:bagstore/config/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,42 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        checkStateOfLoginUser(state, context);
+        if (state is LoginLoading) {
+          // show the CircularProgressIndicator widget
+          showDialog(
+            context: context,
+            builder: (_) => Center(
+              child: CircularProgressIndicator(
+                color: ColorManger.whiteColor,
+              ),
+            ),
+          );
+        } else if (state is LoginSucess) {
+          if (state.bagLoginModel.status == true) {
+            Navigator.of(context)
+                .pop(); // close the dialog if successfully logged in
+            showTouster(
+              massage: state.bagLoginModel.message!,
+              state: ToustState.SUCCESS,
+            );
+            LocalServices.saveData(
+                    key: 'token', value: state.bagLoginModel.data!.token)
+                .then((value) {
+              pushAndFinsh(context, pageName: Routes.homeViewRoute);
+            });
+          } else {
+            showTouster(
+              massage: state.bagLoginModel.message!,
+              state: ToustState.ERROR,
+            );
+          }
+        } else if (state is LoginErorr) {
+          Navigator.of(context).pop(); // close the dialog if login fails
+          showTouster(
+            massage: state.error,
+            state: ToustState.ERROR,
+          );
+        }
       },
       builder: (context, state) {
         var loginCubite = BlocProvider.of<LoginCubit>(context);
@@ -114,7 +149,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           splashColor: Colors.transparent,
                           onTap: () {
                             BlocProvider.of<LoginCubit>(context)
-                                .ChangepasswordVisiability();
+                                .changepasswordVisiability();
                           },
                           child: BlocProvider.of<LoginCubit>(context).icon,
                         ),
@@ -193,42 +228,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     );
   }
 
-  void checkStateOfLoginUser(LoginState state, BuildContext context) {
-    if (state is LoginLoading) {
-      // show the CircularProgressIndicator widget
-      showDialog(
-          context: context,
-          builder: (_) => Center(
-                child: CircularProgressIndicator(
-                  color: ColorManger.whiteColor,
-                ),
-              ));
-    } else if (state is LoginSucess) {
-      if (state.bagLoginModel.status == true) {
-        Navigator.of(context)
-            .pop(); // close the dialog if successfully logged in
-        showTouster(
-          massage: state.bagLoginModel.message!,
-          state: ToustState.SUCCESS,
-        );
-        LocalServices.saveData(
-                key: 'token', value: state.bagLoginModel.data!.token)
-            .then((value) {
-          pushAndFinsh(context, pageName: Routes.homeViewRoute);
-        });
-      } else {
-        Navigator.of(context).pop(); // close the dialog if login fails
-        showTouster(
-          massage: state.bagLoginModel.message!,
-          state: ToustState.ERROR,
-        );
-      }
-    }
-  }
-
   void loginUser(BuildContext context) {
-    BlocProvider.of<LoginCubit>(context).LoginUser(
-      Email: emailController.text,
+    BlocProvider.of<LoginCubit>(context).loginUser(
+      email: emailController.text,
       password: passwordController.text,
       lang: 'en',
     );
