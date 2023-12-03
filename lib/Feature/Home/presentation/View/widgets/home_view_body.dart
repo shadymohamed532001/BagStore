@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/custom_tab_bar.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/list_of_catogry.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/popular_list_view_items.dart';

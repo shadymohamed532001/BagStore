@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
 import 'package:bagstore/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

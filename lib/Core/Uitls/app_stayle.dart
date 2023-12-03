@@ -1,3 +1,4 @@
+import 'package:bagstore/Core/Uitls/app_font_manager.dart';
 import 'package:flutter/material.dart';
 
 // main function the all type return it

@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottom extends StatelessWidget {

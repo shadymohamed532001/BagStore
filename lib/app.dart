@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Resourses/them_manger.dart';
+import 'package:bagstore/Core/Uitls/app_them_manger.dart';
 import 'package:bagstore/config/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 

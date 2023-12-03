@@ -3,7 +3,7 @@ import 'package:bagstore/Core/errors/_failuer.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class LoginRepo {
-  Future<Either<failure, BagAuthModel>> loginUser({
+  Future<Either<Failure, BagAuthModel>> loginUser({
     required String email,
     required String password,
     String? lang,

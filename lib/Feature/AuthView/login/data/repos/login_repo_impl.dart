@@ -9,7 +9,7 @@ import 'package:dio/dio.dart';
 
 class LoginRepoImpl extends LoginRepo {
   @override
-  Future<Either<failure, BagAuthModel>> loginUser({
+  Future<Either<Failure, BagAuthModel>> loginUser({
     required String email,
     required String password,
     String? lang,
@@ -24,10 +24,10 @@ class LoginRepoImpl extends LoginRepo {
     } catch (e) {
       if (e is DioException) {
         return left(
-          ServiersFailuers.fromDioError(e),
+          ServerFailure.fromDioException(e),
         );
       }
-      return left(ServiersFailuers(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 

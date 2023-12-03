@@ -1,5 +1,5 @@
 import 'package:bagstore/Core/Uitls/clip_shapes.dart';
-import 'package:bagstore/Core/Resourses/color_mangager.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
 import 'package:bagstore/Feature/Home/presentation/View/widgets/circle_continer.dart';
 import 'package:flutter/material.dart';
 

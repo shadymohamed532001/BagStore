@@ -1,7 +1,7 @@
-import 'package:bagstore/Core/Resourses/color_mangager.dart';
-import 'package:bagstore/Core/Resourses/style_manger.dart';
-import 'package:bagstore/Core/Uitls/Resourses/string_manger.dart';
-import 'package:bagstore/Core/Uitls/Resourses/value_manger.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
+import 'package:bagstore/Core/Uitls/app_string_manger.dart';
+import 'package:bagstore/Core/Uitls/app_value_manger.dart';
+
 import 'package:bagstore/Core/Uitls/service_locator.dart';
 import 'package:bagstore/config/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/auth_view_body.dart';
@@ -50,8 +50,8 @@ class AppRoutes {
       builder: (context) => Scaffold(
         body: Center(
           child: Text(AppString.noRouteFounded,
-              style: getBoldStyle(
-                fontsize: AppSize.s28,
+              style: TextStyle(
+                fontSize: AppSize.s28,
                 color: ColorManger.blackColor,
               )),
         ),

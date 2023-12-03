@@ -1,9 +1,10 @@
-import 'package:bagstore/Core/Resourses/color_mangager.dart';
-import 'package:bagstore/Core/Uitls/_functions.dart';
+import 'package:bagstore/Core/Uitls/app_colors.dart';
+import 'package:bagstore/Core/Uitls/app_functions.dart';
 import 'package:bagstore/Core/Uitls/local_services.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/shows_toust_color.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/custom_bottom.dart';
-import 'package:bagstore/Core/Uitls/sharewidgets/custom_auth_text_formfield.dart';
+import 'package:bagstore/Core/Uitls/widgets/custom_auth_text_formfield.dart';
+
+import 'package:bagstore/Core/Uitls/widgets/custom_bottom.dart';
+import 'package:bagstore/Core/Uitls/widgets/shows_toust_color.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
 import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';

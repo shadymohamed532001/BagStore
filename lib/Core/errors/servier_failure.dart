@@ -1,8 +1,6 @@
-
+import 'package:bagstore/Core/Uitls/app_status_codes.dart';
+import 'package:bagstore/Core/errors/_failuer.dart';
 import 'package:dio/dio.dart';
-import 'package:store_ify/core/api/status_code.dart';
-import 'package:store_ify/core/errors/failures.dart';
-import 'package:store_ify/core/utils/app_strings.dart';
 
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
@@ -31,7 +29,7 @@ class ServerFailure extends Failure {
           "Unexpected Error, please try again!",
         );
       default:
-        return ServerFailure(AppStrings.opps);
+        return ServerFailure('ppStrings.opp');
     }
   }
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
@@ -41,12 +39,12 @@ class ServerFailure extends Failure {
       if (statusCode == StatusCodes.badRequest ||
           statusCode == StatusCodes.unAuthorized ||
           statusCode == StatusCodes.forbidden) {
-        return ServerFailure(parsedResponse['msgError'] ?? AppStrings.opps);
+        return ServerFailure(parsedResponse['msgError'] ?? 'AppStrings.opps');
       } else if (statusCode == StatusCodes.internalServerError) {
-        return ServerFailure(parsedResponse['error'] ?? AppStrings.opps);
+        return ServerFailure(parsedResponse['error'] ?? 'AppStrings.opp');
       }
     }
 
-    return ServerFailure(AppStrings.opps);
+    return ServerFailure('AppStrings.opp');
   }
 }

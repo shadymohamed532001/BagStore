@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_style.dart';
+import 'package:bagstore/Core/Uitls/app_stayle.dart';
 import 'package:flutter/material.dart';
 
 class CustomSkiper extends StatelessWidget {
@@ -23,8 +23,7 @@ class CustomSkiper extends StatelessWidget {
             Text(
               'Skip',
               textAlign: TextAlign.end,
-              style: AppStyle.textStyle18
-                  .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
+              style: getSemiboldStyle(color: Colors.white),
             ),
           ],
         ),
