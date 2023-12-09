@@ -1,9 +1,9 @@
 import 'package:bagstore/Core/themaing/app_colors.dart';
 
-import 'package:bagstore/Core/helper/service_locator.dart';
+import 'package:bagstore/Core/di/service_locator.dart';
 import 'package:bagstore/Core/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/auth_view_body.dart';
-import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/logic/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';

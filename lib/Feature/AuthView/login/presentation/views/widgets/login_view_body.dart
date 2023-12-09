@@ -6,7 +6,7 @@ import 'package:bagstore/Core/Uitls/widgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_bottom.dart';
 import 'package:bagstore/Core/Uitls/widgets/shows_toust_color.dart';
 import 'package:bagstore/Core/routes/routes.dart';
-import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/logic/cubit/login_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,8 +58,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               state: ToustState.SUCCESS,
             );
             LocalServices.saveData(
-                    key: 'token', value: state.bagLoginModel.data!.token)
-                .then((value) {
+              key: 'token',
+              value: state.bagLoginModel.data!.token,
+            ).then((value) {
               pushAndFinsh(context, pageName: Routes.homeViewRoute);
             });
           } else {
@@ -150,7 +151,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           splashColor: Colors.transparent,
                           onTap: () {
                             BlocProvider.of<LoginCubit>(context)
-                                .ChangepasswordVisiability();
+                                .changepasswordVisiability();
                           },
                           child: BlocProvider.of<LoginCubit>(context).icon,
                         ),
@@ -167,7 +168,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           return null;
                         },
                       ),
-                      InkWell(
+                      SizedBox(
+                        height: 5,
+                      ),
+                      GestureDetector(
                         onTap: () {
                           // Navigator.of(context)
                           // .pushNamed(ForgetPassword.routeName);
@@ -230,10 +234,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   }
 
   void loginUser(BuildContext context) {
-    BlocProvider.of<LoginCubit>(context).LoginUser(
-      Email: emailController.text,
+    BlocProvider.of<LoginCubit>(context).userSignIn(
+      email: emailController.text,
       password: passwordController.text,
-      lang: 'en',
     );
   }
 

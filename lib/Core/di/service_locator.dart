@@ -1,6 +1,6 @@
 import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo.dart';
 import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo_impl.dart';
-import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
+import 'package:bagstore/Feature/AuthView/login/logic/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/data/repositories/onbording_repo.dart';
 import 'package:get_it/get_it.dart';
@@ -30,22 +30,6 @@ class ServiceLocator {
   //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   //   serviceLocator
   //       .registerLazySingleton<SharedPreferences>(() => sharedPreferences);
-
-  // serviceLocator.registerLazySingleton<AppInterceptors>(
-  //   () => AppInterceptors(),
-  //  );
-
-  // serviceLocator.registerLazySingleton<LogInterceptor>(
-  //   () => LogInterceptor(
-  //     request: true,
-  //     requestBody: true,
-  //     requestHeader: true,
-  //     responseBody: true,
-  //     responseHeader: true,
-  //     error: true,
-  //   ),
-  // );
-
   //   serviceLocator.registerLazySingleton<Dio>(() => Dio());
   // }
 
@@ -60,8 +44,7 @@ class ServiceLocator {
   //     () => CacheHelper(serviceLocator<SharedPreferences>()),
   //   );
 
-  //   serviceLocator.registerLazySingleton<DioConsumer>(
-  //       () => DioConsumer(serviceLocator.get()));
+  //   // serviceLocator.registerLazySingleton<ApiServices>(() => );
   // }
 
   void _setupForRepos() {
@@ -82,11 +65,13 @@ class ServiceLocator {
       () =>
           OnbordingCubit(onBoardingRepo: serviceLocator.get<OnBoardingRepo>()),
     );
+    serviceLocator.registerFactory<LoginCubit>(
+        () => LoginCubit(loginRepo: serviceLocator.get<LoginRepo>()));
 
     // serviceLocator.registerFactory<ForgetPasswordCubit>(() =>
     //     ForgetPasswordCubit(
     //         forgetPasswordRepo: serviceLocator.get<ForgetPasswordRepo>()));
-    serviceLocator.registerFactory<LoginCubit>(() => LoginCubit());
+
     // serviceLocator.registerFactory<SignUpCubit>(
     //     () => SignUpCubit(registerRepo: serviceLocator.get<SignUpRepo>()));
     // serviceLocator.registerFactory<VerificationCubit>(() => VerificationCubit(

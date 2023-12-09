@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/api/dio_consumer.dart';
+import 'package:bagstore/Core/api/api_services.dart';
 import 'package:bagstore/Core/api/end_boint.dart';
 import 'package:bagstore/Core/models/Bag_Auth_Model/bag_auth_model.dart';
 import 'package:flutter/material.dart';

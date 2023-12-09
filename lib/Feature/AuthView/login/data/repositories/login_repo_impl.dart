@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/api/dio_consumer.dart';
+import 'package:bagstore/Core/api/api_services.dart';
 import 'package:bagstore/Core/api/end_boint.dart';
 import 'package:bagstore/Core/models/Bag_Auth_Model/bag_auth_model.dart';
 import 'package:bagstore/Core/errors/_failuer.dart';
@@ -15,11 +15,11 @@ class LoginRepoImpl extends LoginRepo {
     String? lang,
   }) async {
     try {
-      final response = await ApiServices.getData(
-          endpoint: loginendpoint,
-          data: {'email': email, 'password': password});
-      print(response);
-      final BagAuthModel user = BagAuthModel.fromJson(response);
+      var response = await ApiServices.postData(endpoint: loginendpoint, data: {
+        'email': email,
+        'password': password,
+      });
+      final BagAuthModel user = BagAuthModel.fromJson(response.data);
       return right(user);
     } catch (e) {
       if (e is DioException) {
@@ -30,33 +30,4 @@ class LoginRepoImpl extends LoginRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-
-  // @override
-  // Future<Either<Failure, BagAuthModel>> loginWithGoogle() {
-  //   // TODO: implement loginWithGoogle
-  //   throw UnimplementedError();
-  // }
 }
-
-
-// // 
-//   void LoginUser({
-//     String? lang,
-//     required String Email,
-//     required String password,
-//   }) async {
-//     emit(LoginLoading());
-//     await ApiServices.postData(
-//         lang: lang ?? 'en',
-//         endpoint: Loginendpoint,
-//         data: {
-//           'email': Email,
-//           'password': password,
-//         }).then((value) {
-//       bagLoginModel = BagAuthModel.fromJson(value.data);
-//       emit(LoginSucess(bagLoginModel: bagLoginModel!));
-//     }).catchError((error) {
-//       print(error.toString());
-//       emit(LoginErorr(error: error.toString()));
-//     });
-//   }

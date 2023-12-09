@@ -6,7 +6,7 @@ class BgaStore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       onGenerateRoute: AppRoutes.onGenerateRoute,
       debugShowCheckedModeBanner: false,
     );
