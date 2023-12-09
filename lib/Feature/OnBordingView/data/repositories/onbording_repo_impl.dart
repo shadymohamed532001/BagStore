@@ -1,6 +1,6 @@
 import 'package:bagstore/Core/themaing/app_image_assets.dart';
-import 'package:bagstore/Core/helper/app_functions.dart';
-import 'package:bagstore/Core/helper/local_services.dart';
+import 'package:bagstore/Core/Uitls/app_functions.dart';
+import 'package:bagstore/Core/Uitls/local_services.dart';
 import 'package:bagstore/Core/routes/routes.dart';
 import 'package:bagstore/Feature/OnBordingView/data/models/on_bording_model.dart';
 import 'package:bagstore/Feature/OnBordingView/data/repositories/onbording_repo.dart';

@@ -1,7 +1,7 @@
 import 'package:bagstore/Core/Uitls/clip_shapes.dart';
 import 'package:bagstore/Core/Uitls/app_constants.dart';
 import 'package:bagstore/Core/themaing/app_image_assets.dart';
-import 'package:bagstore/Core/helper/app_functions.dart';
+import 'package:bagstore/Core/Uitls/app_functions.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_clip_path.dart';
 import 'package:bagstore/Core/routes/routes.dart';
 import 'package:flutter/material.dart';

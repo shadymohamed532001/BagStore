@@ -4,7 +4,6 @@ import 'package:bagstore/Core/themaing/app_colors.dart';
 import 'package:bagstore/Core/themaing/app_image_assets.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/views/login_view.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/sign_up_view.dart';
-import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

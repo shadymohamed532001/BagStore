@@ -1,5 +1,5 @@
-import 'package:bagstore/Core/api/app_status_codes.dart';
-import 'package:bagstore/Core/errors/_failuer.dart';
+import 'package:bagstore/Core/errors/app_status_codes.dart';
+import 'package:bagstore/Core/errors/failuer.dart';
 import 'package:dio/dio.dart';
 
 class ServerFailure extends Failure {

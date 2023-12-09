@@ -1,6 +1,6 @@
 import 'package:bagstore/Core/themaing/app_colors.dart';
-import 'package:bagstore/Core/helper/app_functions.dart';
-import 'package:bagstore/Core/helper/local_services.dart';
+import 'package:bagstore/Core/Uitls/app_functions.dart';
+import 'package:bagstore/Core/Uitls/local_services.dart';
 
 import 'package:bagstore/Core/Uitls/widgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_bottom.dart';
@@ -107,7 +107,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(fontSize: 15.sp)),
+                                .copyWith(fontSize: 14.sp)),
                       ),
                       CustomTextFormFiled(
                         onChanged: (value) {
@@ -144,7 +144,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(fontSize: 15.sp)),
+                                .copyWith(fontSize: 14.sp)),
                       ),
                       CustomTextFormFiled(
                         obscureText: loginCubite.isPasswordShow,

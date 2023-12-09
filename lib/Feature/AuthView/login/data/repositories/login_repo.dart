@@ -1,5 +1,5 @@
 import 'package:bagstore/Core/models/Bag_Auth_Model/bag_auth_model.dart';
-import 'package:bagstore/Core/errors/_failuer.dart';
+import 'package:bagstore/Core/errors/failuer.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class LoginRepo {
