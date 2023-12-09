@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_font_manager.dart';
+import 'package:bagstore/Core/themaing/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 
 // main function the all type return it
@@ -13,7 +13,7 @@ TextStyle _getTexStyle(
 // Regular Text Style
 
 TextStyle getRegularStyle({
-  double fontsize = FontSize.s14,
+  double fontsize = 14,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.regular, color);
@@ -22,7 +22,7 @@ TextStyle getRegularStyle({
 // medium Text Style
 
 TextStyle getMediumStyle({
-  double fontsize = FontSize.s14,
+  double fontsize = 14,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.medium, color);
@@ -31,7 +31,7 @@ TextStyle getMediumStyle({
 // bold Text Style
 
 TextStyle getBoldStyle({
-  double fontsize = FontSize.s14,
+  double fontsize = 14,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.bold, color);
@@ -40,7 +40,7 @@ TextStyle getBoldStyle({
 // semibold Text Style
 
 TextStyle getSemiboldStyle({
-  double fontsize = FontSize.s14,
+  double fontsize = 14,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.semibold, color);
@@ -49,7 +49,7 @@ TextStyle getSemiboldStyle({
 // light Text Style
 
 TextStyle getlightStyle({
-  double fontsize = FontSize.s14,
+  double fontsize = 14,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.light, color);

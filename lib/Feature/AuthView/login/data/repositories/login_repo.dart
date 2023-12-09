@@ -8,5 +8,6 @@ abstract class LoginRepo {
     required String password,
     String? lang,
   });
+
   // Future<Either<Failure, BagAuthModel>> loginWithGoogle();
 }

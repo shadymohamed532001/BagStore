@@ -1,5 +1,5 @@
-import 'package:bagstore/Core/Uitls/app_colors.dart';
-import 'package:bagstore/Core/Uitls/app_stayle.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
+import 'package:bagstore/Core/themaing/app_stayle.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

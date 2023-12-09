@@ -1,13 +1,10 @@
-import 'package:bagstore/Core/Uitls/app_colors.dart';
-import 'package:bagstore/Core/Uitls/app_string_manger.dart';
-import 'package:bagstore/Core/Uitls/app_value_manger.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
 
-import 'package:bagstore/Core/Uitls/service_locator.dart';
-import 'package:bagstore/config/routes/routes.dart';
+import 'package:bagstore/Core/helper/service_locator.dart';
+import 'package:bagstore/Core/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/auth_view_body.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
-import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
 import 'package:bagstore/Feature/SplashView/Presntation/Views/splash_view.dart';
@@ -37,8 +34,8 @@ class AppRoutes {
                     create: (context) => RegisterCubit(),
                   ),
                 ], child: const AuthViewBody()));
-      case Routes.homeViewRoute:
-        return MaterialPageRoute(builder: (context) => const HomeView());
+      // case Routes.homeViewRoute:
+      //   return MaterialPageRoute(builder: (context) => const HomeView());
 
       default:
         return _unFoundRoute();
@@ -49,9 +46,9 @@ class AppRoutes {
     return MaterialPageRoute(
       builder: (context) => Scaffold(
         body: Center(
-          child: Text(AppString.noRouteFounded,
+          child: Text('noRouteFounded',
               style: TextStyle(
-                fontSize: AppSize.s28,
+                fontSize: 28,
                 color: ColorManger.blackColor,
               )),
         ),

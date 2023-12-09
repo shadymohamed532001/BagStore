@@ -1,12 +1,10 @@
-import 'package:bagstore/Core/Uitls/app_colors.dart';
-import 'package:bagstore/Core/Uitls/app_functions.dart';
-import 'package:bagstore/Core/Uitls/local_services.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
+import 'package:bagstore/Core/helper/local_services.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_auth_text_formfield.dart';
 
 import 'package:bagstore/Core/Uitls/widgets/custom_bottom.dart';
 import 'package:bagstore/Core/Uitls/widgets/shows_toust_color.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/manger/register_cubit.dart';
-import 'package:bagstore/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,7 +68,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             LocalServices.saveData(
                     key: 'token', value: state.bagRegisterModel.data!.token)
                 .then((value) {
-              pushAndFinsh(context, pageName: HomeView.routeName);
+              // pushAndFinsh(context, pageName: HomeView.routeName);
             });
           } else {
             Navigator.of(context).pop(); // close the dialog if login fails

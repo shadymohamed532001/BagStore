@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_status_codes.dart';
+import 'package:bagstore/Core/api/app_status_codes.dart';
 import 'package:bagstore/Core/errors/_failuer.dart';
 import 'package:dio/dio.dart';
 

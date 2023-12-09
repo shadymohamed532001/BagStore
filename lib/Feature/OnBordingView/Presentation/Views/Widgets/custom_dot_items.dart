@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_colors.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomDotItems extends StatelessWidget {

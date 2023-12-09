@@ -1,11 +1,11 @@
-import 'package:bagstore/Core/Uitls/app_colors.dart';
-import 'package:bagstore/Core/Uitls/app_functions.dart';
-import 'package:bagstore/Core/Uitls/local_services.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
+import 'package:bagstore/Core/helper/app_functions.dart';
+import 'package:bagstore/Core/helper/local_services.dart';
 
 import 'package:bagstore/Core/Uitls/widgets/custom_auth_text_formfield.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_bottom.dart';
 import 'package:bagstore/Core/Uitls/widgets/shows_toust_color.dart';
-import 'package:bagstore/config/routes/routes.dart';
+import 'package:bagstore/Core/routes/routes.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -150,7 +150,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           splashColor: Colors.transparent,
                           onTap: () {
                             BlocProvider.of<LoginCubit>(context)
-                                .changepasswordVisiability();
+                                .ChangepasswordVisiability();
                           },
                           child: BlocProvider.of<LoginCubit>(context).icon,
                         ),
@@ -230,8 +230,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   }
 
   void loginUser(BuildContext context) {
-    BlocProvider.of<LoginCubit>(context).loginUser(
-      email: emailController.text,
+    BlocProvider.of<LoginCubit>(context).LoginUser(
+      Email: emailController.text,
       password: passwordController.text,
       lang: 'en',
     );

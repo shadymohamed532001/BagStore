@@ -1,5 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_them_manger.dart';
-import 'package:bagstore/config/routes/app_routes.dart';
+import 'package:bagstore/Core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class BgaStore extends StatelessWidget {
@@ -10,7 +9,6 @@ class BgaStore extends StatelessWidget {
     return MaterialApp(
       onGenerateRoute: AppRoutes.onGenerateRoute,
       debugShowCheckedModeBanner: false,
-      theme: getAppThem(),
     );
   }
 }

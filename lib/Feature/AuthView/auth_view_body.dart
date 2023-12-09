@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:bagstore/Core/Uitls/app_colors.dart';
-import 'package:bagstore/Core/Uitls/app_image_assets.dart';
+import 'package:bagstore/Core/themaing/app_colors.dart';
+import 'package:bagstore/Core/themaing/app_image_assets.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/views/login_view.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +37,8 @@ class _MyTabbedPageState extends State<AuthViewBody>
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: ColorManger.whiteColor.withOpacity(0.2),
+          elevation: 0.0,
           automaticallyImplyLeading: false,
           title: Image.asset(
             ImagesAssetsManger.applogoBlack,

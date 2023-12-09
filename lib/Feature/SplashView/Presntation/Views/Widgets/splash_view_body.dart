@@ -1,9 +1,9 @@
 import 'package:bagstore/Core/Uitls/clip_shapes.dart';
 import 'package:bagstore/Core/Uitls/app_constants.dart';
-import 'package:bagstore/Core/Uitls/app_image_assets.dart';
-import 'package:bagstore/Core/Uitls/app_functions.dart';
+import 'package:bagstore/Core/themaing/app_image_assets.dart';
+import 'package:bagstore/Core/helper/app_functions.dart';
 import 'package:bagstore/Core/Uitls/widgets/custom_clip_path.dart';
-import 'package:bagstore/config/routes/routes.dart';
+import 'package:bagstore/Core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -92,7 +92,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(const Duration(seconds: 2), (() {
       if (onBording != null) {
         if (token != null) {
-          pushAndFinsh(context, pageName: Routes.homeViewRoute);
+          // pushAndFinsh(context, pageName: Routes.homeViewRoute);
         } else {
           pushAndFinsh(context, pageName: Routes.authViewRoute);
         }

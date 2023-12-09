@@ -1,6 +1,5 @@
-import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo.dart';
-import 'package:bagstore/Feature/AuthView/login/data/repos/login_repo_impl.dart';
-
+import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo.dart';
+import 'package:bagstore/Feature/AuthView/login/data/repositories/login_repo_impl.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/manger/cubit/login_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bagstore/Feature/OnBordingView/data/repositories/onbording_repo.dart';
@@ -87,8 +86,7 @@ class ServiceLocator {
     // serviceLocator.registerFactory<ForgetPasswordCubit>(() =>
     //     ForgetPasswordCubit(
     //         forgetPasswordRepo: serviceLocator.get<ForgetPasswordRepo>()));
-    serviceLocator.registerFactory<LoginCubit>(
-        () => LoginCubit(loginRepo: serviceLocator.get<LoginRepo>()));
+    serviceLocator.registerFactory<LoginCubit>(() => LoginCubit());
     // serviceLocator.registerFactory<SignUpCubit>(
     //     () => SignUpCubit(registerRepo: serviceLocator.get<SignUpRepo>()));
     // serviceLocator.registerFactory<VerificationCubit>(() => VerificationCubit(

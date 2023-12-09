@@ -1,4 +1,4 @@
-import 'package:bagstore/Core/Uitls/app_stayle.dart';
+import 'package:bagstore/Core/themaing/app_stayle.dart';
 import 'package:flutter/material.dart';
 
 class CustomSkiper extends StatelessWidget {
