@@ -10,6 +10,7 @@ import 'package:bagstore/Feature/AuthView/login/logic/cubit/login_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -106,7 +107,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(fontSize: 15)),
+                                .copyWith(fontSize: 15.sp)),
                       ),
                       CustomTextFormFiled(
                         onChanged: (value) {
@@ -128,7 +129,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         child: Text(
                           errorMessage,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
                             color: ColorManger.redColor,
                           ),
@@ -138,12 +139,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         height: MediaQuery.of(context).size.height * 0.003,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
+                        padding: EdgeInsets.only(left: 16.0.w),
                         child: Text('Password',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(fontSize: 15)),
+                                .copyWith(fontSize: 15.sp)),
                       ),
                       CustomTextFormFiled(
                         obscureText: loginCubite.isPasswordShow,
@@ -168,7 +169,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       GestureDetector(

@@ -3,8 +3,10 @@
 import 'package:bagstore/Core/themaing/app_colors.dart';
 import 'package:bagstore/Core/themaing/app_image_assets.dart';
 import 'package:bagstore/Feature/AuthView/login/presentation/views/login_view.dart';
+import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/sign_up_view.dart';
 import 'package:bagstore/Feature/AuthView/sign_up/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthViewBody extends StatefulWidget {
   static const String routeName = 'AuthViewBody';
@@ -42,8 +44,8 @@ class _MyTabbedPageState extends State<AuthViewBody>
           automaticallyImplyLeading: false,
           title: Image.asset(
             ImagesAssetsManger.applogoBlack,
-            width: 50,
-            height: 50,
+            width: 50.h,
+            height: 50.h,
           ),
         ),
         body: Column(
@@ -61,14 +63,14 @@ class _MyTabbedPageState extends State<AuthViewBody>
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium!
-                        .copyWith(fontSize: 14),
+                        .copyWith(fontSize: 14.sp),
                   ),
                   Text(
                     'SIGN UP',
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium!
-                        .copyWith(fontSize: 14),
+                        .copyWith(fontSize: 14.sp),
                   ),
                 ],
                 indicatorWeight: 4,
@@ -82,9 +84,9 @@ class _MyTabbedPageState extends State<AuthViewBody>
                 width: double.infinity,
                 child: TabBarView(
                   controller: _tabController,
-                  children: [
-                    const LoginView(),
-                    SignUpViewBody(),
+                  children: const [
+                    LoginView(),
+                    SignUpView(),
                   ],
                 ),
               ),

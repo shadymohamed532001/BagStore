@@ -7,6 +7,7 @@ import 'package:bagstore/Feature/OnBordingView/Presentation/Views/Widgets/onbord
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -77,18 +78,18 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
                         color: const Color(0xff333333),
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Text(widget.cubit.onBoardingPages()[index].subtittle,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           color: const Color(0xff848484),
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w400,
                         )),
                     const Spacer(

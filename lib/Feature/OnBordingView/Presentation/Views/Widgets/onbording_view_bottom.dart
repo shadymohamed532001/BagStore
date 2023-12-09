@@ -3,6 +3,7 @@ import 'package:bagstore/Core/themaing/app_stayle.dart';
 import 'package:bagstore/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOnBordBottom extends StatelessWidget {
   const CustomOnBordBottom({
@@ -21,7 +22,7 @@ class CustomOnBordBottom extends StatelessWidget {
     return BlocBuilder<OnbordingCubit, OnbordingState>(
       builder: (context, state) {
         return SizedBox(
-          height: 55,
+          height: 55.h,
           width: double.infinity,
           child: ElevatedButton(
             onPressed: onPressed,
@@ -40,7 +41,7 @@ class CustomOnBordBottom extends StatelessWidget {
                           1
                   ? 'Get Started Now'
                   : 'Next',
-              style: getRegularStyle(color: Colors.white, fontsize: 18),
+              style: getRegularStyle(color: Colors.white, fontsize: 18.sp),
             ),
           ),
         );
